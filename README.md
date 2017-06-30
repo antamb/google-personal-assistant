@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 This repository contains the source code for the AIYProjects "Voice Kit". See
 https://aiyprojects.withgoogle.com/voice/.
 
@@ -11,3 +12,7 @@ If you're using Rasbian instead of Google's provided image, read
 
 The scripts in the `checkpoints` directory verify the Raspberry Pi's setup.
 They can be run from the desktop shortcuts or from the terminal.
+=======
+# google-personal-assistant
+personnal assistant based on aiy-project 
+>>>>>>> 8f936a57a90f38bfcda32c1203bcf972e23d05f1
