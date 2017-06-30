@@ -15,7 +15,6 @@
 '''Test the action base classes.'''
 
 import unittest
-
 import actionbase
 
 

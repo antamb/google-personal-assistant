@@ -23,6 +23,11 @@ from rgbxy import Converter
 
 import actionbase
 
+from vision.OCR import OCR
+from vision.logo_detection import LogoDetection
+from vision.face_detection import FaceDetection
+from vision.label_detection import LabelDetection
+
 # =============================================================================
 #
 # Hey, Makers!

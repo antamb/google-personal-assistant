@@ -65,7 +65,6 @@ ASSISTANT_CREDENTIALS = (
     os.path.join(VR_CACHE_DIR, 'assistant_credentials.json')
 )
 
-
 def try_to_get_credentials(client_secrets):
     """Try to get credentials, or print an error and quit on failure."""
 
