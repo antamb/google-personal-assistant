@@ -22,10 +22,9 @@ class FaceDetection:
         elif nb_faces == 1:
             response += "one person "
         else:
-            return response + "nobody "
+            return response + "nobody"
 
         # Get emotions from faces
-        response += "and "
         emotions = [0] * 4
         for face in faces:
             if face.emotions.joy in Constants.RATINGS:
@@ -36,25 +35,27 @@ class FaceDetection:
                 emotions[FaceDetection.SORROW] += 1
             elif face.emotions.surprise in Constants.RATINGS:
                 emotions[FaceDetection.SURPRISE] += 1
-        response += response + FaceDetection.get_message_from_emotions(emotions)
+        response += response + FaceDetection.get_message_from_emotions(emotions, nb_faces)
 
         print("[FaceDetection][response]: " + response)
         return response
 
     @staticmethod
-    def get_message_from_emotions(emotions):
+    def get_message_from_emotions(emotions, nb_faces):
+        message = ""
         # Detect joy emotion
-        if emotions[FaceDetection.JOY] > 1:
-            return "there is {} that are happy".format(emotions[FaceDetection.JOY])
-        elif emotions[FaceDetection.JOY] == 1:
-            return "there is one who is happy"
+        if emotions[FaceDetection.JOY] > 1 and emotions[FaceDetection.JOY] != nb_faces:
+            message += "and {} of them are happy.".format(emotions[FaceDetection.JOY])
+        elif emotions[FaceDetection.JOY] == 1 and nb_faces == 1:
+            message += "who is happy."
+        elif emotions[FaceDetection.JOY] == nb_faces:
+            message += "and they are all happy, well that good cause I hate seeing people sad"
+            return message
         else:
-            return "nobody is happy"
+            message += "and nobody is happy."
+            return message
 
         # Detect sad emotion
-        if emotions[FaceDetection.SORROW] > 1:
-            return "there is {} sad people, please give them a hug for me".format(emotions[FaceDetection.JOY])
-        elif emotions[FaceDetection.SORROW] == 1:
-            return "there is one person who is sad, please him a hug for me"
-        else:
-            return "nobody is sad, that good cause I hate seeing people sad"
+        if emotions[FaceDetection.SORROW] > 1 and emotions[FaceDetection.JOY] != nb_faces:
+            message += "however, {} of them are sad, please give them a hug for me".format(emotions[FaceDetection.JOY])
+        return message
