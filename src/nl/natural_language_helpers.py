@@ -1,9 +1,7 @@
 from google.cloud import language
 
-from vision.OCR import OCR
 
 class NaturalLanguageHelper:
-
     def __init__(self):
         self._client = language.Client()
 
@@ -26,6 +24,3 @@ class NaturalLanguageHelper:
         document = self._client.document_from_text(content=text)
         response = document.analyze_syntax()
         return response
-
-
-

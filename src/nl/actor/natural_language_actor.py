@@ -1,4 +1,4 @@
-from language.natural_language_analyzer import LanguageAnalyzer
+from nl.natural_language_analyzer import LanguageAnalyzer
 
 
 class LanguageAnalyzerActor(object):

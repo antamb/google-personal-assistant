@@ -1,4 +1,4 @@
-from language.natural_language_helpers import NaturalLanguageHelper
+from nl.natural_language_helpers import NaturalLanguageHelper
 
 from vision.OCR import OCR
 

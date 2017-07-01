@@ -28,7 +28,7 @@ from vision.actor.logo_detection_actor import LogoDetectionActor
 from vision.actor.face_detection_actor import FaceDetectionActor
 from vision.actor.landmark_detection import LandMarkDetectionActor
 from vision.actor.label_detection_actor import LabelDetectionActor
-from language.actor.natural_language_actor import LanguageAnalyzerActor
+from nl.actor.natural_language_actor import LanguageAnalyzerActor
 from vision.actor.image_attributes_actor import ImageAttributesDetectionActor
 from vision.actor.web_annotations_detection_actor import WebAnnotationsDetection
 from vision.actor.explicit_content_detection_actor import ExplicitContentDetectionActor
