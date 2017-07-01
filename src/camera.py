@@ -16,7 +16,7 @@ class CameraUtils:
         try:
             print("Give me your best smile")
             camera.start_preview()
-            sleep(2)
+            sleep(1)
             camera.capture(file)
             camera.stop_preview()
         finally:
