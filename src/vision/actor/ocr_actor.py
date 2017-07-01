@@ -3,7 +3,7 @@ from vision.OCR import OCR
 
 class OCRActor(object):
 
-    def __init__(self, say, command):
+    def __init__(self, say, command="DEFAULT"):
         self.say = say
         self.command = command
 
