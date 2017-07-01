@@ -30,13 +30,13 @@ class LanguageAnalyzer:
                             EntityType.LOCATION: [],
                             EntityType.ORGANIZATION: []}
         for entity in entities:
-            if entity.entity_type == EntityType.EVENT.name:
+            if entity.entity_type == EntityType.EVENT:
                 entity_name_type[EntityType.EVENT].append(entity.name)
-            if entity.entity_type == EntityType.PERSON.name:
+            if entity.entity_type == EntityType.PERSON:
                 entity_name_type[EntityType.PERSON].append(entity.name)
-            if entity.entity_type == EntityType.LOCATION.name:
+            if entity.entity_type == EntityType.LOCATION:
                 entity_name_type[EntityType.LOCATION].append(entity.name)
-            if entity.entity_type == EntityType.ORGANIZATION.name:
+            if entity.entity_type == EntityType.ORGANIZATION:
                 entity_name_type[EntityType.ORGANIZATION].append(entity.name)
 
             if len(entity_name_type[EntityType.EVENT]) > 0:
