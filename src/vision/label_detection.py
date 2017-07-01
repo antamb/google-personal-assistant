@@ -19,7 +19,7 @@ class LabelDetection:
             response += "one label:"
         else:
             label_list = []
-            response += "few labels:"
+            response += "few labels: "
             for label in labels:
                 label_list.append(label.description)
             response += ", ".join(label_list)
