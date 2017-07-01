@@ -33,13 +33,13 @@ class FaceDetection:
             print("[FaceDetection][emotion][JOY]: {}".format(face.emotions.joy))
             print("[FaceDetection][emotion][ANGER]: {}".format(face.emotions.anger))
             print("[FaceDetection][emotion][SORROW]: {}".format(face.emotions.sorrow))
-            if face.emotions.joy == Likelihood.VERY_LIKELY or face.emotions.joy == Likelihood.LIKELY:
+            if face.emotions.joy.name in Constants.RATINGS:
                 emotions[FaceDetection.JOY] += 1
-            elif face.emotions.anger == Likelihood.VERY_LIKELY or face.emotions.anger == Likelihood.LIKELY:
+            elif face.emotions.anger.name in Constants.RATINGS:
                 emotions[FaceDetection.ANGER] += 1
-            elif face.emotions.sorrow == Likelihood.VERY_LIKELY or face.emotions.sorrow == Likelihood.LIKELY:
+            elif face.emotions.sorrow.name in Constants.RATINGS:
                 emotions[FaceDetection.SORROW] += 1
-            elif face.emotions.surprise == Likelihood.VERY_LIKELY or face.emotions.surprise == Likelihood.LIKELY:
+            elif face.emotions.surprise.name in Constants.RATINGS:
                 emotions[FaceDetection.SURPRISE] += 1
         response += FaceDetection.get_message_from_emotions(emotions, nb_faces)
 
@@ -57,8 +57,8 @@ class FaceDetection:
         elif emotions[FaceDetection.JOY] == nb_faces:
             message += "and they are all happy, well that good cause I hate seeing people sad"
             return message
-        elif emotions[FaceDetection.JOY] < 1 and nb_faces == 1:
-            message += "who is not happy"
+        elif emotions[FaceDetection.ANGER] == 1 and nb_faces == 1:
+            message += "who is angry"
             return message
         else:
             message += "nobody is happy"
