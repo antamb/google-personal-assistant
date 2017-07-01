@@ -33,13 +33,13 @@ class FaceDetection:
             print("[FaceDetection][emotion][JOY]: {}".format(face.emotions.joy))
             print("[FaceDetection][emotion][ANGER]: {}".format(face.emotions.anger))
             print("[FaceDetection][emotion][SORROW]: {}".format(face.emotions.sorrow))
-            if face.emotions.joy == Likelihood.VERY_LIKELY:
+            if face.emotions.joy == Likelihood.VERY_LIKELY or face.emotions.joy == Likelihood.LIKELY:
                 emotions[FaceDetection.JOY] += 1
-            elif face.emotions.anger in Constants.RATINGS:
+            elif face.emotions.anger == Likelihood.VERY_LIKELY or face.emotions.anger == Likelihood.LIKELY:
                 emotions[FaceDetection.ANGER] += 1
-            elif face.emotions.sorrow in Constants.RATINGS:
+            elif face.emotions.sorrow == Likelihood.VERY_LIKELY or face.emotions.sorrow == Likelihood.LIKELY:
                 emotions[FaceDetection.SORROW] += 1
-            elif face.emotions.surprise in Constants.RATINGS:
+            elif face.emotions.surprise == Likelihood.VERY_LIKELY or face.emotions.surprise == Likelihood.LIKELY:
                 emotions[FaceDetection.SURPRISE] += 1
         response += FaceDetection.get_message_from_emotions(emotions, nb_faces)
 
