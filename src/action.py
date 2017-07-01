@@ -23,8 +23,16 @@ from rgbxy import Converter
 
 import actionbase
 
+from vision.actor.ocr_actor import OCRActor
 from vision.actor.face_detection_actor import FaceDetectionActor
+from vision.actor.logo_detection_actor import LogoDetectionActor
+from vision.actor.face_detection_actor import FaceDetectionActor
+from vision.actor.landmark_detection import LandMarkDetectionActor
 from vision.actor.label_detection_actor import LabelDetectionActor
+from vision.actor.image_attributes_actor import ImageAttributesDetectionActor
+from vision.actor.web_annotations_detection_actor import WebAnnotationsDetection
+from vision.actor.explicit_content_detection_actor import ExplicitContentDetectionActor
+
 
 # =============================================================================
 #
@@ -261,10 +269,6 @@ class PowerCommand(object):
             logging.error("Error identifying power command.")
             self.say("Sorry I didn't identify that command")
 
-# =========================================
-# Makers! Implement your own actions here.
-# =========================================
-
 
 def make_actor(say):
     """Create an actor to carry out the user's commands."""
@@ -287,7 +291,14 @@ def make_actor(say):
 
     # Vision API command
     actor.add_keyword(_('what do you see'), LabelDetectionActor(say))
+    actor.add_keyword(_('can you read the text'), OCRActor(say, "text"))
+    actor.add_keyword(_('do you see any logo'), LogoDetectionActor(say))
     actor.add_keyword(_('tell me if you see someone'), FaceDetectionActor(say))
+    actor.add_keyword(_('get web info about rosa parks image'), WebAnnotationsDetection(say))
+    actor.add_keyword(_('which kind of content do you see'), ExplicitContentDetectionActor(say))
+    actor.add_keyword(_('give me the landmarks about what you see'), LandMarkDetectionActor(say))
+    actor.add_keyword(_('take a screenshot and give me the characteristic of the image'), ImageAttributesDetectionActor(say))
+    actor.add_keyword(_('take a screenshot and give me the characteristics of the image'), ImageAttributesDetectionActor(say))
 
     return actor
 

@@ -10,9 +10,11 @@ class ExplicitContentDetection:
         image = self._vision.get_vision_image()
         explicit_content = image.detect_safe_search()
 
-        response = "{} {} {} {}".format(explicit_content.adult,
+        result = "{} {} {} {}".format(explicit_content.adult,
                                         explicit_content.medical,
                                         explicit_content.spoof,
                                         explicit_content.violence)
-        print("[ExplicitContentDetection][response]: " + response)
+        print("[ExplicitContentDetection][response]: " + result)
+
+        response = "Explicit Content Detection done"
         return response
