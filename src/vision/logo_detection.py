@@ -9,19 +9,22 @@ class LogoDetection:
     def detect_logos(self):
         image = self._vision.get_vision_image()
         logos = image.detect_logos()
+
+        nb_logos = len(logos)
         response = "I see "
-
-        if len(logos) < 1:
+        if nb_logos < 1:
             response += " nothing"
-        elif len(logos) == 1:
-            response += "logo "
+            return response
+        elif nb_logos == 1:
+            response += "the logo of"
         else:
-            response += "logos "
+            response += "many logos: "
 
-        response += "of "
-        for logo in logos:
-            response += logo.description
-            response += ", "
+        if nb_logos >= 1:
+            logo_list = {}
+            for logo in logos:
+                logo_list.append(logo.description)
+            response += ", ".join(logo_list)
 
         print("[LogoDetection][response]: " + response)
         return response
