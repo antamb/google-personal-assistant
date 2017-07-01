@@ -22,11 +22,15 @@ class FaceDetection:
         elif nb_faces == 1:
             response += "one person "
         else:
-            return response + "nobody"
+            response += "nobody"
+            return response
 
         # Get emotions from faces
         emotions = [0] * 4
         for face in faces:
+            print("[FaceDetection][emotion][JOY]: " + face.emotions.joy)
+            print("[FaceDetection][emotion][ANGER]: " + face.emotions.anger)
+            print("[FaceDetection][emotion][SORROW]: " + face.emotions.sorrow)
             if face.emotions.joy in Constants.RATINGS:
                 emotions[FaceDetection.JOY] += 1
             elif face.emotions.anger in Constants.RATINGS:
@@ -35,7 +39,7 @@ class FaceDetection:
                 emotions[FaceDetection.SORROW] += 1
             elif face.emotions.surprise in Constants.RATINGS:
                 emotions[FaceDetection.SURPRISE] += 1
-        response += response + FaceDetection.get_message_from_emotions(emotions, nb_faces)
+        response += FaceDetection.get_message_from_emotions(emotions, nb_faces)
 
         print("[FaceDetection][response]: " + response)
         return response
@@ -51,8 +55,11 @@ class FaceDetection:
         elif emotions[FaceDetection.JOY] == nb_faces:
             message += "and they are all happy, well that good cause I hate seeing people sad"
             return message
+        elif emotions[FaceDetection.JOY] < 1 and nb_faces == 1:
+            message += "who is not happy"
+            return message
         else:
-            message += "and nobody is happy."
+            message += "nobody is happy"
             return message
 
         # Detect sad emotion
