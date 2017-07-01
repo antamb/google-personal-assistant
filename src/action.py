@@ -292,6 +292,7 @@ def make_actor(say):
     actor.add_keyword(_('what do you see'), LabelDetectionActor(say))
     actor.add_keyword(_('can you read the text'), OCRActor(say, "text"))
     actor.add_keyword(_('do you see any logo'), LogoDetectionActor(say))
+    actor.add_keyword(_('can you read the full text'), OCRActor(say, "text"))
     actor.add_keyword(_('tell me if you see someone'), FaceDetectionActor(say))
     actor.add_keyword(_('get web info about rosa parks image'), WebAnnotationsDetection(say))
     actor.add_keyword(_('which kind of content do you see'), ExplicitContentDetectionActor(say))
