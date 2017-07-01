@@ -22,7 +22,7 @@ class LabelDetection:
             response += "few labels:"
             for label in labels:
                 label_list.append(label.description)
-            response += " ".join(label_list)
+            response += ", ".join(label_list)
 
         print("[LabelDetection][response]: " + response)
         return response
