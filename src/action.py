@@ -285,7 +285,7 @@ def make_actor(say):
     actor.add_keyword(_('raspberry reboot'), PowerCommand(say, 'reboot'))
 
     # Vision API command
-    actor.add_keyword(_('tell me if you see someone ?'), FaceDetectionActor(say))
+    actor.add_keyword(_('tell me if you see someone'), FaceDetectionActor(say))
 
     return actor
 
