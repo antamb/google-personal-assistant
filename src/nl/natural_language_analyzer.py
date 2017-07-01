@@ -39,13 +39,13 @@ class LanguageAnalyzer:
             if entity.entity_type == EntityType.ORGANIZATION:
                 entity_name_type[EntityType.ORGANIZATION].append(entity.name)
 
-            if len(entity_name_type[EntityType.EVENT]) > 0:
-                response += "{} events".format(len(entity_name_type[EntityType.EVENT]))
-            if len(entity_name_type[EntityType.PERSON]) > 0:
-                response += "{} personss".format(len(entity_name_type[EntityType.PERSON]))
-            if len(entity_name_type[EntityType.LOCATION]) > 0:
-                response += "{} locations".format(len(entity_name_type[EntityType.LOCATION]))
-            if len(entity_name_type[EntityType.ORGANIZATION]) > 0:
-                response += "{} organizations".format(len(entity_name_type[EntityType.ORGANIZATION]))
+        if len(entity_name_type[EntityType.EVENT]) > 0:
+            response += "{} events".format(len(entity_name_type[EntityType.EVENT]))
+        if len(entity_name_type[EntityType.PERSON]) > 0:
+            response += "{} persons".format(len(entity_name_type[EntityType.PERSON]))
+        if len(entity_name_type[EntityType.LOCATION]) > 0:
+            response += "{} locations".format(len(entity_name_type[EntityType.LOCATION]))
+        if len(entity_name_type[EntityType.ORGANIZATION]) > 0:
+            response += "{} organizations".format(len(entity_name_type[EntityType.ORGANIZATION]))
 
         return response
