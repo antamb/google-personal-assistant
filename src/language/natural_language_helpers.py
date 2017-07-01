@@ -1,5 +1,6 @@
 from google.cloud import language
 
+from vision.OCR import OCR
 
 class NaturalLanguageHelper:
 
