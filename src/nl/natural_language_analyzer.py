@@ -48,4 +48,4 @@ class LanguageAnalyzer:
             if len(entity_name_type[EntityType.ORGANIZATION]) > 0:
                 response += "{} organizations".format(len(entity_name_type[EntityType.ORGANIZATION]))
 
-        return "Language Analysis done"
+        return response
