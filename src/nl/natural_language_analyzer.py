@@ -19,9 +19,9 @@ class LanguageAnalyzer:
         response = ""
         nb_entities = len(entities)
         if nb_entities > 1:
-            response += "I analyzed {} entities from the text on the image"
+            response += "I analyzed {} entities from the text on the image".format(nb_entities)
         elif nb_entities == 1:
-            response += "I analyzed {} entity from the text on the image"
+            response += "I analyzed one entity from the text on the image".format(nb_entities)
         else:
             response += "I didn't detect any entity in the text"
 
@@ -39,13 +39,28 @@ class LanguageAnalyzer:
             if entity.entity_type == EntityType.ORGANIZATION:
                 entity_name_type[EntityType.ORGANIZATION].append(entity.name)
 
-        if len(entity_name_type[EntityType.EVENT]) > 0:
+        nb_events = len(entity_name_type[EntityType.EVENT])
+        if nb_events > 1:
             response += "{} events".format(len(entity_name_type[EntityType.EVENT]))
-        if len(entity_name_type[EntityType.PERSON]) > 0:
+        elif nb_events == 1:
+            response += "one event"
+
+        nb_persons = len(entity_name_type[EntityType.PERSON])
+        if nb_persons > 1:
             response += "{} persons".format(len(entity_name_type[EntityType.PERSON]))
-        if len(entity_name_type[EntityType.LOCATION]) > 0:
+        elif nb_persons == 1:
+            response += "one person"
+
+        nb_locations = len(entity_name_type[EntityType.LOCATION])
+        if nb_locations > 1:
             response += "{} locations".format(len(entity_name_type[EntityType.LOCATION]))
-        if len(entity_name_type[EntityType.ORGANIZATION]) > 0:
+        elif nb_locations == 1:
+            response += "one location"
+
+        nb_organizations = len(entity_name_type[EntityType.ORGANIZATION])
+        if nb_organizations > 1:
             response += "{} organizations".format(len(entity_name_type[EntityType.ORGANIZATION]))
+        elif nb_organizations == 1:
+            response += "one organization"
 
         return response
