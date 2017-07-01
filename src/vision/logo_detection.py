@@ -21,7 +21,7 @@ class LogoDetection:
             response += "many logos: "
 
         if nb_logos >= 1:
-            logo_list = {}
+            logo_list = []
             for logo in logos:
                 logo_list.append(logo.description)
             response += ", ".join(logo_list)
