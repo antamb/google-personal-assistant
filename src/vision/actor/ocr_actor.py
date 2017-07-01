@@ -1,4 +1,4 @@
-from vision.ocr import OCR
+from vision.OCR import OCR
 
 
 class OCRActor(object):

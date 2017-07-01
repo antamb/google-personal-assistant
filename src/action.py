@@ -24,7 +24,6 @@ from rgbxy import Converter
 import actionbase
 
 from vision.actor.ocr_actor import OCRActor
-from vision.actor.face_detection_actor import FaceDetectionActor
 from vision.actor.logo_detection_actor import LogoDetectionActor
 from vision.actor.face_detection_actor import FaceDetectionActor
 from vision.actor.landmark_detection import LandMarkDetectionActor
