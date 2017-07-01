@@ -23,8 +23,7 @@ from rgbxy import Converter
 
 import actionbase
 
-from vision.face_detection import FaceDetection
-from vision.label_detection import LabelDetection
+from vision.actor.face_detection_actor import FaceDetectionActor
 
 # =============================================================================
 #
@@ -285,6 +284,9 @@ def make_actor(say):
     actor.add_keyword(_('raspberry power off'), PowerCommand(say, 'shutdown'))
     actor.add_keyword(_('raspberry reboot'), PowerCommand(say, 'reboot'))
 
+    # Vision API command
+    actor.add_keyword(_('tell me who do you see ?'), FaceDetectionActor(say))
+
     return actor
 
 
@@ -312,9 +314,5 @@ would conflict with the First Law.
 conflict with the First or Second Law."""))
     simple_command(_('where are you from'), _("A galaxy far, far, just kidding. I'm from Seattle."))
     simple_command(_('your name'), _('A machine has no name'))
-
-    # Vision API commands
-    simple_command(_('tell me what do you see ?'), _(LabelDetection.detect_labels(LabelDetection())))
-    simple_command(_('tell me who do you see ?'), _(FaceDetection.detect_faces(FaceDetection())))
 
     actor.add_keyword(_('time'), SpeakTime(say))
