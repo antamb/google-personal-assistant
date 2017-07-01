@@ -10,14 +10,19 @@ class LabelDetection:
         image = self._vision.get_vision_image()
         labels = image.detect_labels()
 
-        response = "Well, I see "
+        response = "Well, I detected "
 
-        if len(labels) < 1:
+        nb_labels = len(labels)
+        if nb_labels < 1:
             response += " nothing"
-
-        for label in labels:
-            response += "a "
-            response += label.description
+        elif nb_labels == 1:
+            response += "one label:"
+        else:
+            label_list = []
+            response += "few labels:"
+            for label in labels:
+                label_list.append(label.description)
+            response += ",".join(label_list)
 
         print("[LabelDetection][response]: " + response)
         return response

@@ -1,6 +1,6 @@
-from vision.face_detection import FaceDetection
+from vision.label_detection import LabelDetection
 
-face_detection = FaceDetection()
-FaceDetection.detect_faces(face_detection)
+label_detection = LabelDetection()
+LabelDetection.detect_labels(label_detection)
 
 
