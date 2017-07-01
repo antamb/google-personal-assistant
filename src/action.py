@@ -23,8 +23,6 @@ from rgbxy import Converter
 
 import actionbase
 
-from vision.OCR import OCR
-from vision.logo_detection import LogoDetection
 from vision.face_detection import FaceDetection
 from vision.label_detection import LabelDetection
 
@@ -284,11 +282,6 @@ def make_actor(say):
 
     actor.add_keyword(_('repeat after me'),
                       RepeatAfterMe(say, _('repeat after me')))
-
-    # =========================================
-    # Makers! Add your own voice commands here.
-    # =========================================
-
     actor.add_keyword(_('raspberry power off'), PowerCommand(say, 'shutdown'))
     actor.add_keyword(_('raspberry reboot'), PowerCommand(say, 'reboot'))
 
@@ -319,5 +312,12 @@ would conflict with the First Law.
 conflict with the First or Second Law."""))
     simple_command(_('where are you from'), _("A galaxy far, far, just kidding. I'm from Seattle."))
     simple_command(_('your name'), _('A machine has no name'))
+
+    # Vision API commands
+    face_detection = FaceDetection()
+    label_detection = LabelDetection()
+
+    actor.add_keyword(_('tell me what do you see ?'), _(LabelDetection.detect_labels(label_detection)))
+    actor.add_keyword(_('tell me who do you see ?'), _(FaceDetection.detect_faces(face_detection)))
 
     actor.add_keyword(_('time'), SpeakTime(say))
