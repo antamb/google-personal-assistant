@@ -28,9 +28,9 @@ class FaceDetection:
         # Get emotions from faces
         emotions = [0] * 4
         for face in faces:
-            print("[FaceDetection][emotion][JOY]: " + face.emotions.joy)
-            print("[FaceDetection][emotion][ANGER]: " + face.emotions.anger)
-            print("[FaceDetection][emotion][SORROW]: " + face.emotions.sorrow)
+            print("[FaceDetection][emotion][JOY]: {}".format(face.emotions.joy))
+            print("[FaceDetection][emotion][ANGER]: {}".format(face.emotions.anger))
+            print("[FaceDetection][emotion][SORROW]: {}".format(face.emotions.sorrow))
             if face.emotions.joy in Constants.RATINGS:
                 emotions[FaceDetection.JOY] += 1
             elif face.emotions.anger in Constants.RATINGS:
