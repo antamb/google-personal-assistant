@@ -1,6 +1,5 @@
 from google.cloud import language
 
-
 class NaturalLanguageHelper:
     def __init__(self):
         self._client = language.Client()
