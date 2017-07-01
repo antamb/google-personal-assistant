@@ -314,10 +314,7 @@ conflict with the First or Second Law."""))
     simple_command(_('your name'), _('A machine has no name'))
 
     # Vision API commands
-    face_detection = FaceDetection()
-    label_detection = LabelDetection()
-
-    actor.add_keyword(_('tell me what do you see ?'), _(LabelDetection.detect_labels(label_detection)))
-    actor.add_keyword(_('tell me who do you see ?'), _(FaceDetection.detect_faces(face_detection)))
+    simple_command(_('tell me what do you see ?'), _(LabelDetection.detect_labels(LabelDetection())))
+    simple_command(_('tell me who do you see ?'), _(FaceDetection.detect_faces(FaceDetection())))
 
     actor.add_keyword(_('time'), SpeakTime(say))
