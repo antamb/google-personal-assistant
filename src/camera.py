@@ -7,7 +7,7 @@ from time import sleep
 
 class CameraUtils:
 
-    IMAGE_DIR = "~/Pictures/screenshots/"
+    IMAGE_DIR = "/home/pi/Pictures/screenshots/"
 
     @staticmethod
     def take_screenshot():
