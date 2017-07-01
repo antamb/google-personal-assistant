@@ -20,5 +20,7 @@ class CameraUtils:
             camera.capture(file)
             camera.stop_preview()
         finally:
-            print("Ok now you can relax")
             camera.close()
+
+        print("Ok now you can relax")
+        return file
