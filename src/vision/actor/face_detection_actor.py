@@ -6,6 +6,6 @@ class FaceDetectionActor(object):
     def __init__(self, say):
         self.say = say
 
-    def run(self, voice_command):
+    def run(self, command):
         response = FaceDetection.detect_faces(FaceDetection())
         self.say(response)

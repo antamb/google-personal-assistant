@@ -14,5 +14,5 @@ class ExplicitContentDetection:
                                         explicit_content.medical,
                                         explicit_content.spoof,
                                         explicit_content.violence)
-        print("[LandMarkDetection][response]: " + response)
+        print("[ExplicitContentDetection][response]: " + response)
         return response

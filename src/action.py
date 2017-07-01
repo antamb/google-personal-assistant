@@ -24,6 +24,7 @@ from rgbxy import Converter
 import actionbase
 
 from vision.actor.face_detection_actor import FaceDetectionActor
+from vision.actor.label_detection_actor import LabelDetectionActor
 
 # =============================================================================
 #
@@ -285,6 +286,7 @@ def make_actor(say):
     actor.add_keyword(_('raspberry reboot'), PowerCommand(say, 'reboot'))
 
     # Vision API command
+    actor.add_keyword(_('what do you see'), LabelDetectionActor(say))
     actor.add_keyword(_('tell me if you see someone'), FaceDetectionActor(say))
 
     return actor
