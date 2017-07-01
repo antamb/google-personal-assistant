@@ -30,12 +30,12 @@ class OCR:
 
     def detect_text(self):
         image = self._vision.get_vision_image()
-        texts = image.detect_full_text()
+        texts = image.detect_text()
         response = ""
-
+        text_list = []
         for text in texts:
-            response += text.description
-            response += ", "
+            text_list.append(text.description)
+            response += ", ".join(text_list)
 
         print("[OCR][detect_text]: " + response)
         return response
