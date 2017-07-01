@@ -1,3 +1,5 @@
+from google.cloud.vision.likelihood import Likelihood
+
 from constants import Constants
 from vision.vision_helpers import VisionHelper
 
@@ -31,7 +33,7 @@ class FaceDetection:
             print("[FaceDetection][emotion][JOY]: {}".format(face.emotions.joy))
             print("[FaceDetection][emotion][ANGER]: {}".format(face.emotions.anger))
             print("[FaceDetection][emotion][SORROW]: {}".format(face.emotions.sorrow))
-            if face.emotions.joy in Constants.RATINGS:
+            if face.emotions.joy == Likelihood.VERY_LIKELY:
                 emotions[FaceDetection.JOY] += 1
             elif face.emotions.anger in Constants.RATINGS:
                 emotions[FaceDetection.ANGER] += 1
