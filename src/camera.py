@@ -41,5 +41,5 @@ class CameraUtils:
         finally:
             camera.close()
 
-        print("[{}] Done taking video".format(Constants.get_timestamp()))
+        print("[{}] Done taking video: {}".format(Constants.get_timestamp(), converted_file))
         return converted_file
