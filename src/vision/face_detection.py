@@ -1,9 +1,5 @@
-from pip.utils import logging
-
 from constants import Constants
 from vision.vision_helpers import VisionHelper
-
-logger = logging.getLogger('FaceDetection')
 
 class FaceDetection:
     JOY = 0
