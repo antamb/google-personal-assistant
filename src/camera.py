@@ -31,14 +31,15 @@ class CameraUtils:
     def take_video():
         file = os.path.join(CameraUtils.IMAGE_DIR, "video.h264")
         camera = PiCamera()
+        converted_file = file.replace("h264", "mp4")
         try:
             print("[{}] About to take a video".format(Constants.get_timestamp()))
             camera.start_recording(file)
             sleep(10)
             camera.stop_recording()
-            subprocess.check_output(['MP4Box', '-add {} {}'.format(file, file.replace("h264", "mp4"))])
+            subprocess.check_output(['MP4Box', '-add', '{}'.format(file), '{}'.format(converted_file)])
         finally:
             camera.close()
 
         print("[{}] Done taking video".format(Constants.get_timestamp()))
-        return file
+        return converted_file
