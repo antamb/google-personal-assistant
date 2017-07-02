@@ -36,7 +36,7 @@ class CameraUtils:
             camera.start_recording(file)
             sleep(10)
             camera.stop_recording()
-            subprocess.check_output(['MP4Box', '-add {}.h264 {}.mp4'.format(file, file.replace("h264", "mp4"))])
+            subprocess.check_output(['MP4Box', '-add {} {}'.format(file, file.replace("h264", "mp4"))])
         finally:
             camera.close()
 
