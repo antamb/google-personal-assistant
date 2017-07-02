@@ -5,7 +5,6 @@ import sys
 import time
 
 from google.cloud.gapic.videointelligence.v1beta1 import (video_intelligence_service_client)
-from google.cloud.videointelligence_v1beta1 import enums
 
 from camera import CameraUtils
 
@@ -16,7 +15,7 @@ class VideoIntelligence:
     def get_labels():
         client = (video_intelligence_service_client.
                   VideoIntelligenceServiceClient())
-        features = [enums.Feature.LABEL_DETECTION]
+        features = [4]
 
         file = CameraUtils.take_video()
         with io.open(file, "rb") as video:
