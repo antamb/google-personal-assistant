@@ -1,8 +1,9 @@
-from google.cloud.vision.likelihood import Likelihood
+from pip.utils import logging
 
 from constants import Constants
 from vision.vision_helpers import VisionHelper
 
+logger = logging.getLogger('FaceDetection')
 
 class FaceDetection:
     JOY = 0
@@ -30,9 +31,9 @@ class FaceDetection:
         # Get emotions from faces
         emotions = [0] * 4
         for face in faces:
-            print("[FaceDetection][emotion][JOY]: {}".format(face.emotions.joy))
-            print("[FaceDetection][emotion][ANGER]: {}".format(face.emotions.anger))
-            print("[FaceDetection][emotion][SORROW]: {}".format(face.emotions.sorrow))
+            logger.info("[FaceDetection][emotion][JOY]: {}".format(face.emotions.joy))
+            logger.info("[FaceDetection][emotion][ANGER]: {}".format(face.emotions.anger))
+            logger.info("[FaceDetection][emotion][SORROW]: {}".format(face.emotions.sorrow))
             if face.emotions.joy.name in Constants.RATINGS:
                 emotions[FaceDetection.JOY] += 1
             elif face.emotions.anger.name in Constants.RATINGS:
@@ -43,7 +44,7 @@ class FaceDetection:
                 emotions[FaceDetection.SURPRISE] += 1
         response += FaceDetection.get_message_from_emotions(emotions, nb_faces)
 
-        print("[FaceDetection][response]: " + response)
+        logger.info("[FaceDetection][response]: " + response)
         return response
 
     @staticmethod

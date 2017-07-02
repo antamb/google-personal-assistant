@@ -30,7 +30,7 @@ from vision.actor.landmark_detection import LandMarkDetectionActor
 from vision.actor.label_detection_actor import LabelDetectionActor
 from nl.actor.natural_language_actor import LanguageAnalyzerActor
 from vision.actor.image_attributes_actor import ImageAttributesDetectionActor
-from vision.actor.web_annotations_detection_actor import WebAnnotationsDetection
+from vision.actor.web_annotations_detection_actor import WebAnnotationsDetectionActor
 from vision.actor.explicit_content_detection_actor import ExplicitContentDetectionActor
 
 
@@ -291,12 +291,11 @@ def make_actor(say):
 
     # Vision API command
     actor.add_keyword(_('what do you see'), LabelDetectionActor(say))
-    actor.add_keyword(_('can you read the full text'), OCRActor(say))
+    actor.add_keyword(_('do you see someone'), FaceDetectionActor(say))
     actor.add_keyword(_('can you read the text'), OCRActor(say, "text"))
     actor.add_keyword(_('do you see any logo'), LogoDetectionActor(say))
-    actor.add_keyword(_('tell me if you see someone'), FaceDetectionActor(say))
     actor.add_keyword(_('analyze the text from the image'), LanguageAnalyzerActor(say))
-    actor.add_keyword(_('get web info about rosa parks image'), WebAnnotationsDetection(say))
+    actor.add_keyword(_('get web info about rosa parks image'), WebAnnotationsDetectionActor(say))
     actor.add_keyword(_('which kind of content do you see'), ExplicitContentDetectionActor(say))
     actor.add_keyword(_('give me the landmarks about what you see'), LandMarkDetectionActor(say))
     actor.add_keyword(_('take a screenshot and give me the characteristic of the image'), ImageAttributesDetectionActor(say))

@@ -1,7 +1,7 @@
 from vision.web_detection import WebAnnotationsDetection
 
 
-class WebAnnotationsDetection(object):
+class WebAnnotationsDetectionActor(object):
 
     def __init__(self, say):
         self.say = say
