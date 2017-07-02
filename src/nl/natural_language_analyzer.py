@@ -42,7 +42,7 @@ class LanguageAnalyzer:
 
         nb_events = len(entity_name_type[EntityType.EVENT])
         if nb_events > 0:
-            print(", ".join(entity_name_type[EntityType.EVENT]))
+            print("[EVENTS]" + ", ".join(entity_name_type[EntityType.EVENT]))
         if nb_events > 1:
             response += "{} events".format(len(entity_name_type[EntityType.EVENT]))
         elif nb_events == 1:
@@ -50,7 +50,7 @@ class LanguageAnalyzer:
 
         nb_persons = len(entity_name_type[EntityType.PERSON])
         if nb_persons > 0:
-            print(", ".join(entity_name_type[EntityType.PERSON]))
+            print("[PERSONS]" + ", ".join(entity_name_type[EntityType.PERSON]))
         if nb_events > 0 and nb_persons > 0:
             response += ", "
         if nb_persons > 1:
@@ -60,7 +60,7 @@ class LanguageAnalyzer:
 
         nb_locations = len(entity_name_type[EntityType.LOCATION])
         if nb_locations > 0:
-            print(", ".join(entity_name_type[EntityType.LOCATION]))
+            print("[LOCATIONS]" + ", ".join(entity_name_type[EntityType.LOCATION]))
         if nb_persons > 0 and nb_locations > 0:
             response += ", "
         if nb_locations > 1:
@@ -70,7 +70,7 @@ class LanguageAnalyzer:
 
         nb_organizations = len(entity_name_type[EntityType.ORGANIZATION])
         if nb_organizations > 0:
-            print(", ".join(entity_name_type[EntityType.ORGANIZATION]))
+            print("[ORGANIZATIONS]" + ", ".join(entity_name_type[EntityType.ORGANIZATION]))
         if nb_organizations > 0 and nb_locations > 0:
             response += ", "
         if nb_organizations > 1:
