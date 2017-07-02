@@ -5,11 +5,7 @@ import subprocess
 from picamera import PiCamera
 
 from time import sleep
-
-from pip import logger
-from pip.utils import logging
-
-logger = logging.getLogger('CameraUtils')
+from constants import Constants
 
 
 class CameraUtils:
@@ -20,7 +16,7 @@ class CameraUtils:
         file = os.path.join(CameraUtils.IMAGE_DIR, "screenshot.jpg")
         camera = PiCamera()
         try:
-            logger.info("About to take a picture")
+            print("[{}] About to take a picture".format(Constants.get_timestamp()))
             camera.start_preview()
             sleep(1)
             camera.capture(file)
@@ -28,7 +24,7 @@ class CameraUtils:
         finally:
             camera.close()
 
-        logger.info("Done taking picture")
+        print("[{}] Done taking picture".format(Constants.get_timestamp()))
         return file
 
     @staticmethod
@@ -36,7 +32,7 @@ class CameraUtils:
         file = os.path.join(CameraUtils.IMAGE_DIR, "video.h264")
         camera = PiCamera()
         try:
-            logger.info("About to take a video")
+            print("[{}] About to take a video".format(Constants.get_timestamp()))
             camera.start_recording(file)
             sleep(10)
             camera.stop_recording()
@@ -44,5 +40,5 @@ class CameraUtils:
         finally:
             camera.close()
 
-        logger.info("Done taking video")
+        print("[{}] Done taking video".format(Constants.get_timestamp()))
         return file

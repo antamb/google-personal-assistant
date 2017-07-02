@@ -31,9 +31,9 @@ class FaceDetection:
         # Get emotions from faces
         emotions = [0] * 4
         for face in faces:
-            logger.info("[FaceDetection][emotion][JOY]: {}".format(face.emotions.joy))
-            logger.info("[FaceDetection][emotion][ANGER]: {}".format(face.emotions.anger))
-            logger.info("[FaceDetection][emotion][SORROW]: {}".format(face.emotions.sorrow))
+            print("[{}] [FaceDetection][emotion][JOY]: {}".format(Constants.get_timestamp(), face.emotions.joy))
+            print("[{}] [FaceDetection][emotion][ANGER]: {}".format(Constants.get_timestamp(), face.emotions.anger))
+            print("[{}] [FaceDetection][emotion][SORROW]: {}".format(Constants.get_timestamp(), face.emotions.sorrow))
             if face.emotions.joy.name in Constants.RATINGS:
                 emotions[FaceDetection.JOY] += 1
             elif face.emotions.anger.name in Constants.RATINGS:
@@ -44,7 +44,7 @@ class FaceDetection:
                 emotions[FaceDetection.SURPRISE] += 1
         response += FaceDetection.get_message_from_emotions(emotions, nb_faces)
 
-        logger.info("[FaceDetection][response]: " + response)
+        print("[{}] [FaceDetection][response]: {}".format(Constants.get_timestamp(), response))
         return response
 
     @staticmethod

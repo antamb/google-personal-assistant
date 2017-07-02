@@ -1,3 +1,4 @@
+from constants import Constants
 from vision.vision_helpers import VisionHelper
 
 
@@ -25,7 +26,7 @@ class OCR:
                     block_text = block_text + symbol.text
                 response += block_text + "\n"
 
-        print("[OCR][detect_full_text]: " + response)
+        print("[{}] [OCR][detect_full_text]: {}".format(Constants.get_timestamp(), response))
         return response
 
     def detect_text(self):
@@ -34,5 +35,5 @@ class OCR:
         if len(texts) >= 1:
             response = texts[0].description
 
-        print("[OCR][detect_text]: " + response)
+        print("[{}] [OCR][detect_text]: {}".format(Constants.get_timestamp(), response))
         return response
