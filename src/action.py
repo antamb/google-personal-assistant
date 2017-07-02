@@ -295,9 +295,10 @@ def make_actor(say):
     actor.add_keyword(_('can you read the text'), OCRActor(say, "text"))
     actor.add_keyword(_('do you see any logo'), LogoDetectionActor(say))
     actor.add_keyword(_('analyze the text from the image'), LanguageAnalyzerActor(say))
-    actor.add_keyword(_('get web info about rosa parks image'), WebAnnotationsDetectionActor(say))
     actor.add_keyword(_('which kind of content do you see'), ExplicitContentDetectionActor(say))
     actor.add_keyword(_('give me the landmarks about what you see'), LandMarkDetectionActor(say))
+    actor.add_keyword(_('web info about what you see'), WebAnnotationsDetectionActor(say, False))
+    actor.add_keyword(_('web info about Rosa Parks image'), WebAnnotationsDetectionActor(say, True))
     actor.add_keyword(_('take a screenshot and give me the characteristic of the image'), ImageAttributesDetectionActor(say))
     actor.add_keyword(_('take a screenshot and give me the characteristics of the image'), ImageAttributesDetectionActor(say))
 

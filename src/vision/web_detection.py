@@ -2,44 +2,41 @@ from vision.vision_helpers import VisionHelper
 
 
 class WebAnnotationsDetection:
-
     def __init__(self):
         self._vision = VisionHelper()
 
-    def detect_web_annotations(self):
-        image = self._vision.get_vision_image(True)
+    def detect_web_annotations(self, static_image=True):
+        image = self._vision.get_vision_image(static_image)
         notes = image.detect_web()
 
         if notes.pages_with_matching_images:
-            print('\n{} Pages with matching images retrieved')
-
+            print('\n{} matching pages')
+            nb_pages = len(notes.pages_with_matching_images)
             for page in notes.pages_with_matching_images:
-                print('Score : {}'.format(page.score))
                 print('Url   : {}'.format(page.url))
 
         if notes.full_matching_images:
-            print('\n{} Full Matches found: '.format(
-                len(notes.full_matching_images)))
+            nb_full_matches = len(notes.full_matching_images)
+            print('\n{} full matches: '.format(nb_full_matches))
 
             for image in notes.full_matching_images:
-                print('Score:  {}'.format(image.score))
-                print('Url  : {}'.format(image.url))
+                print('url  : {}'.format(image.url))
 
         if notes.partial_matching_images:
-            print('\n{} Partial Matches found: '.format(
-                len(notes.partial_matching_images)))
+            nb_partial_matches = len(notes.partial_matching_images)
+            print('\n{} partial matches: '.format(nb_partial_matches))
 
             for image in notes.partial_matching_images:
-                print('Score: {}'.format(image.score))
-                print('Url  : {}'.format(image.url))
+                print('url  : {}'.format(image.url))
 
         if notes.web_entities:
-            print('\n{} Web entities found: '.format(len(notes.web_entities)))
+            nb_web_entities_matches = len(notes.web_entities)
+            print('\n{} web entities: '.format(nb_web_entities_matches))
 
             for entity in notes.web_entities:
-                print('Score      : {}'.format(entity.score))
                 print('Description: {}'.format(entity.description))
 
-        response = "Web Detection done"
+        response = "Web annotations Detection done. Found: {} pages with matching image, {} full match, {} partial matches and {} web entities".format(
+            nb_pages, nb_full_matches,
+            nb_partial_matches, nb_web_entities_matches)
         return response
-
