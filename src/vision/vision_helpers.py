@@ -16,3 +16,5 @@ class VisionHelper:
             content = image_file.read()
             image = self._client.image(content=content)
             return image
+
+
