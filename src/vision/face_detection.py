@@ -61,7 +61,7 @@ class FaceDetection:
             return message
         elif nb_faces == 1:
             message += "who is not happy"
-        elif:
+        else:
             message += "and nobody is happy"
             return message
 
