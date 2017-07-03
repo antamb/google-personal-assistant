@@ -293,16 +293,16 @@ def make_actor(say):
     # Vision API command
     actor.add_keyword(_('what do you see'), LabelDetectionActor(say))
     actor.add_keyword(_('do you see someone'), FaceDetectionActor(say))
-    actor.add_keyword(_('can you read the text'), OCRActor(say, "text"))
+    actor.add_keyword(_('read the text'), OCRActor(say, "text"))
     actor.add_keyword(_('do you see any logo'), LogoDetectionActor(say))
-    actor.add_keyword(_('analyze the text from the image'), LanguageAnalyzerActor(say))
-    actor.add_keyword(_('which kind of content do you see'), ExplicitContentDetectionActor(say))
+    actor.add_keyword(_('analyze the text'), LanguageAnalyzerActor(say))
+    actor.add_keyword(_('which content do you see'), ExplicitContentDetectionActor(say))
     actor.add_keyword(_('give me the landmarks about what you see'), LandMarkDetectionActor(say))
     actor.add_keyword(_('take a video and get labels from it'), VideoIntelligenceActor(say))
-    actor.add_keyword(_('web info about what you see'), WebAnnotationsDetectionActor(say, False))
-    actor.add_keyword(_('web info about Rosa Parks image'), WebAnnotationsDetectionActor(say, True))
-    actor.add_keyword(_('take a screenshot and give me the characteristic of the image'), ImageAttributesDetectionActor(say))
-    actor.add_keyword(_('take a screenshot and give me the characteristics of the image'), ImageAttributesDetectionActor(say))
+    actor.add_keyword(_('web info please'), WebAnnotationsDetectionActor(say, False))
+    actor.add_keyword(_('web info about Rosa Parks'), WebAnnotationsDetectionActor(say, True))
+    actor.add_keyword(_('give me the characteristic about what you see'), ImageAttributesDetectionActor(say))
+    actor.add_keyword(_('give me the characteristics about what you see'), ImageAttributesDetectionActor(say))
 
     return actor
 
