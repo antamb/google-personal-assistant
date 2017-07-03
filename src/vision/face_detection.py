@@ -19,7 +19,7 @@ class FaceDetection:
         nb_faces = len(faces)
         print("[{}] NB FACES : {}".format(Constants.get_timestamp(), nb_faces))
         if nb_faces > 1:
-            response + "{} people ".format(nb_faces)
+            response += "{} people ".format(nb_faces)
         elif nb_faces == 1:
             response += "one person "
         else:
@@ -60,7 +60,7 @@ class FaceDetection:
             message += "who is angry"
             return message
         else:
-            message += "nobody is happy"
+            message += " and nobody is happy"
             return message
 
         # Detect sad emotion
