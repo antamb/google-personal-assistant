@@ -59,8 +59,10 @@ class FaceDetection:
         elif emotions[FaceDetection.ANGER] == 1 and nb_faces == 1:
             message += "who is angry"
             return message
-        else:
-            message += " and nobody is happy"
+        elif nb_faces == 1:
+            message += "who is not happy"
+        elif:
+            message += "and nobody is happy"
             return message
 
         # Detect sad emotion
