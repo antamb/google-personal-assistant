@@ -2,6 +2,7 @@ from constants import Constants
 from vision.vision_helpers import VisionHelper
 
 class FaceDetection:
+
     JOY = 0
     ANGER = 1
     SORROW = 2
@@ -16,6 +17,7 @@ class FaceDetection:
 
         response = "I see "
         nb_faces = len(faces)
+        print("[{}] NB FACES : {}".format(Constants.get_timestamp(), nb_faces))
         if nb_faces > 1:
             response + "{} people ".format(nb_faces)
         elif nb_faces == 1:
